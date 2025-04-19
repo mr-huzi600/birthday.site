@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    /* Video Background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    /* Overlay Content */
+    #intro, #message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color:black;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    #message {
+      display: none;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .cake {
+      font-size: 60px;
+      margin: 20px 0;
+      animation: bounce 1.5s infinite;
+    }
+
+    h1 {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Optional blur overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(2px);
+      z-index: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- VIDEO BACKGROUND -->
+  <!-- Yahan pe tum koi bhi animated looping video rakh sakte ho, jaise: birthday_background.mp4 -->
+  <video autoplay muted loop id="bg-video">
+    <source src="c:\Users\MUGHAL PC\Downloads\WhatsApp Video 2025-04-13 at 9.09.45 AM (1).mp4" type="video/mp4">
+ 
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro">
+    <h1>Press Enter to Start</h1>
+  </div>
+
+  <!-- BIRTHDAY MESSAGE -->
+  <div id="message">
+    <div class="cake">🎂🎂</div>
+    <h1>Happy Birthday, friend!</h1>
+    <p>Wishing you all the happiness, success and epic code this year!</p>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("message").style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
